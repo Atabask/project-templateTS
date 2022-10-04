@@ -4,7 +4,7 @@ import { renderBlock } from './lib.js'
 
 export function renderUserBlock (name: string, URLAvatar: string, favoriteItemsAmount: number) {
 
-  const hasFavoriteItems = favoriteItemsAmount ? true : false
+  const hasFavoriteItems = Boolean(favoriteItemsAmount)
 
   renderBlock(
     'user-block',

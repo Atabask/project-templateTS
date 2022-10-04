@@ -31,7 +31,7 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
             <label for="check-in-date">Дата заезда</label>
             <input id="check-in-date" 
             type="date" 
-            value="${dateChekin instanceof Date ? gettingTheDate(dateChekin, 0, 0) : gettingTheDate(today, 0, 1)}" 
+            value="${dateChekin instanceof Date ? gettingTheDate(dateChekin, 0, 0) : gettingTheDate(today, 0, 2)}" 
             min="${gettingTheDate(today, 0, 0)}" 
             max="${gettingTheDate(maxDate, 0, 0)}" 
             name="checkin" />
@@ -41,7 +41,7 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
             <input id="check-out-date" 
             type="date" 
             value="${dateCheckout instanceof Date ? gettingTheDate(dateCheckout, 0, 0) : gettingTheDate(today, 0, 3)}" 
-            min="${gettingTheDate(today, 0, 2)}" 
+            min="${gettingTheDate(today, 0, 3)}" 
             max="${gettingTheDate(maxDate, 0, 0)}" 
             name="checkout"/>
           </div>
