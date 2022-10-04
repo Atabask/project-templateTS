@@ -1,7 +1,7 @@
 import { renderBlock } from './lib.js'
 
 
-export function renderSearchFormBlock(dateChekin: Date, dateCheckout: Date) {
+export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Date | null) {
 
   const today: Date = new Date();
   const maxDate: Date = new Date(today.getFullYear(), today.getMonth() + 2, 0)

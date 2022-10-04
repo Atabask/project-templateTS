@@ -1,11 +1,6 @@
 import { renderBlock } from './lib.js'
 
- 
-// type userData = {
-//   nameUser: string,
-//   URLAvatar: string,
-//   favoriteItemsAmount: number 
-// }
+
 
 export function renderUserBlock (name: string, URLAvatar: string, favoriteItemsAmount: number) {
 
