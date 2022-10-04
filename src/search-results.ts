@@ -1,5 +1,9 @@
 import { renderBlock } from './lib.js'
 
+type reasonMessage = {
+  reasonMessage: string
+}  
+
 export function renderSearchStubBlock () {
   renderBlock(
     'search-results-block',
@@ -12,7 +16,7 @@ export function renderSearchStubBlock () {
   )
 }
 
-export function renderEmptyOrErrorSearchBlock (reasonMessage) {
+export function renderEmptyOrErrorSearchBlock (reasonMessage: reasonMessage) {
   renderBlock(
     'search-results-block',
     `
