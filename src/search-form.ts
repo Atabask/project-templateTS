@@ -1,8 +1,7 @@
 import { renderBlock } from './lib.js'
-
-
-
-export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Date | null) {
+import { IsearchFromData } from './interface'
+ 
+export function renderSearchFormBlock(dateChekin: IsearchFromData , dateCheckout: IsearchFromData ) {
 
   const today: Date = new Date();
   const maxDate: Date = new Date(today.getFullYear(), today.getMonth() + 2, 0)
@@ -10,16 +9,6 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
     return `${d.getFullYear()}-${("00" + (d.getMonth() + month + 1)).slice(-2)}-${("00" + (d.getDate() + day)).slice(-2)}`
   }
 
-
-  // interface searchFromData {
-  //   cityToSearchFor: string,
-  //   dateChekin: number,
-  //   dateCheckout: number,
-  //   maxPrice: number
-  // }
-
-  
-  
   renderBlock(
     'search-form-block',
     `
@@ -57,7 +46,7 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
           </div>
           <div>
             <label for="max-price">Макс. цена суток</label>
-            <input id="max-price" type="text" value="" name="price" class="max-price" />
+            <input id="max-price" type="number" value="" name="price" class="max-price" />
           </div>
           <div>
             <div><button id="btnSubmit" type="submit">Найти</button></div>
@@ -65,27 +54,35 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
         </div>
       </fieldset>
     </form>
-    `,
-  
-    // function serializeForm(form?: HTMLFormElement): void {
-    //   console.log(form.elements)
-    // },
+    `
+    );
+
+    const srchForm = document.getElementById("searchForm")
     
+    srchForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const inCityToSearchFor = document.getElementById("city") as HTMLInputElement
+      const inDateChekin = document.getElementById("check-in-date") as HTMLInputElement
+      const inDateCheckout = document.getElementById("check-out-date") as HTMLInputElement
+      const inMaxPrice = document.getElementById("max-price") as HTMLInputElement
+
+      const dataSearch: IsearchFromData = {
+        cityToSearchFor: inCityToSearchFor.value,
+        dateChekin: new Date (inDateChekin.value),
+        dateCheckout: new Date (inDateCheckout.value),
+        maxPrice: inMaxPrice.value === " " ? null : + inMaxPrice.value
+      };
+
+      search(dataSearch)
+
+    })
+
+
+    function search(data: IsearchFromData ){
+      console.log(data)
+    }
     
-    // function handleFormSubmit(event: SubmitEvent) {
-    //   event.preventDefault()
-    //   serializeForm()
-    // },
-    
-    // const applicantForm = document.getElementById("btnSubmit")
-    
-    // if(applicantForm){
-    //   applicantForm.addEventListener("submit", handleFormSubmit)
-    // } 
-    
-  
-  
-  
-  
-    )
 }
+
+
