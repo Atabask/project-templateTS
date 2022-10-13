@@ -4,7 +4,7 @@ import { renderUserBlock } from './user.js'
 // import { renderToast } from './lib.js'
 
 window.addEventListener('DOMContentLoaded', () => {
-  renderUserBlock("Cat", "https://wonder-day.com/wp-content/uploads/2022/03/wonder-day-avatar-memes-cats-35.jpg", 5)
+  renderUserBlock("Cat", "https://wonder-day.com/wp-content/uploads/2022/03/wonder-day-avatar-memes-cats-35.jpg", 6)
   renderSearchFormBlock(null, null)
   renderSearchStubBlock()
   // renderToast(
