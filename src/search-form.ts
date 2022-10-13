@@ -1,6 +1,7 @@
 import { renderBlock } from './lib.js'
 
 
+
 export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Date | null) {
 
   const today: Date = new Date();
@@ -10,10 +11,19 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
   }
 
 
+  // interface searchFromData {
+  //   cityToSearchFor: string,
+  //   dateChekin: number,
+  //   dateCheckout: number,
+  //   maxPrice: number
+  // }
+
+  
+  
   renderBlock(
     'search-form-block',
     `
-    <form>
+    <form id="searchForm">
       <fieldset class="search-filedset">
         <div class="row">
           <div>
@@ -50,11 +60,32 @@ export function renderSearchFormBlock(dateChekin: Date | null, dateCheckout: Dat
             <input id="max-price" type="text" value="" name="price" class="max-price" />
           </div>
           <div>
-            <div><button>Найти</button></div>
+            <div><button id="btnSubmit" type="submit">Найти</button></div>
           </div>
         </div>
       </fieldset>
     </form>
-    `
-  )
+    `,
+  
+    // function serializeForm(form?: HTMLFormElement): void {
+    //   console.log(form.elements)
+    // },
+    
+    
+    // function handleFormSubmit(event: SubmitEvent) {
+    //   event.preventDefault()
+    //   serializeForm()
+    // },
+    
+    // const applicantForm = document.getElementById("btnSubmit")
+    
+    // if(applicantForm){
+    //   applicantForm.addEventListener("submit", handleFormSubmit)
+    // } 
+    
+  
+  
+  
+  
+    )
 }
